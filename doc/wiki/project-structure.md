@@ -18,7 +18,8 @@ ITENT45/
         ├── manage.py
         ├── core/
         │   ├── migrations/
-        │   │   └── 0001_initial.py
+        │   │   ├── 0001_initial.py
+        │   │   └── 0002_cartitem.py
         │   ├── models.py
         │   ├── templates/
         │   │   └── core/
@@ -42,8 +43,10 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - `core.views.index` loads `core/index.html` and supplies database-backed `Product` records.
 - The root page displays a two-column `Name`/`Price` table with each product name linked to `/product/<id>`, requires authentication, and greets the logged-in user.
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
+- `core.models.CartItem` stores a user's product and quantity as a cart line item.
 - `/admin/` retains Django's generated administration route.
 - `core.admin` registers `Product` with the default Django admin site.
+- `core.admin` also registers `CartItem` for admin management.
 - `/product/<integer>` routes to `core.views.product_detail`, requires authentication, and renders the matching product name, price, and a link back to `/`.
 - `/accounts/login/` renders the custom login form, reports invalid credentials, and redirects successful logins to `/`.
 
