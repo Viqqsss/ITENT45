@@ -7,10 +7,7 @@ from .models import Product
 def index(request):
     # Load the template
     template = loader.get_template("core/index.html")
-    products = [
-        {"name": "Americano", "price": 110},
-        {"name": "Cappuccino", "price": 140},
-    ]
+    products = Product.objects.order_by("price")
     context = {
         "product_data": products
     }

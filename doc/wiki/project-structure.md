@@ -37,8 +37,8 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 ## Current routing
 
 - `/` is routed from `digitalcafe.urls` to `core.urls`.
-- `core.views.index` loads `core/index.html` and supplies two in-memory product records.
-- The root page displays Americano at PHP 110 and Cappuccino at PHP 140.
+- `core.views.index` loads `core/index.html` and supplies database-backed `Product` records ordered by price.
+- The root page displays a two-column table with Espresso at PHP 100, Americano at PHP 110, and Cappuccino at PHP 140.
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `/admin/` retains Django's generated administration route.
 
