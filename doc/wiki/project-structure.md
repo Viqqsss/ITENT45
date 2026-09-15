@@ -22,7 +22,8 @@ ITENT45/
         │   ├── models.py
         │   ├── templates/
         │   │   └── core/
-        │   │       └── index.html
+        │   │       ├── index.html
+        │   │       └── product_detail.html
         │   ├── urls.py
         │   └── views.py
         └── digitalcafe/
@@ -42,7 +43,7 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `/admin/` retains Django's generated administration route.
 - `core.admin` registers `Product` with the default Django admin site.
-- `/product/<integer>` routes to `core.views.product_detail` and returns the matching product name.
+- `/product/<integer>` routes to `core.views.product_detail` and renders the matching product name, price, and a link back to `/`.
 
 ## Installed applications
 

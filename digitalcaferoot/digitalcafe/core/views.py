@@ -15,5 +15,9 @@ def index(request):
 
 
 def product_detail(request, product_id):
+    template = loader.get_template("core/product_detail.html")
     p = Product.objects.get(id=product_id)
-    return HttpResponse(str(p.name))
+    context = {
+        "product": p
+    }
+    return HttpResponse(template.render(context, request))

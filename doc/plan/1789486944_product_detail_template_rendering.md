@@ -6,22 +6,22 @@ Render each product detail route through a dedicated template containing the pro
 
 ## Task board
 
-- [ ] Commit this approved plan on `main`.
-- [ ] Create and switch to a feature branch.
-- [ ] Deactivate Conda and activate `digitalcaferoot/env` for every Python/Django command.
-- [ ] Create `digitalcaferoot/digitalcafe/core/templates/core/product_detail.html` with the requested back link and conditional product fields.
-- [ ] Update `core.views.product_detail` to load `core/product_detail.html`, pass the selected `Product` as `product`, and render the response.
-- [ ] Run `python manage.py check` and the test suite.
-- [ ] Verify the detail template is discoverable.
-- [ ] Verify an existing `/product/<id>` response contains the product name, price, and `Back to products` link.
-- [ ] Verify `/` remains functional.
-- [ ] Review the diff and confirm no database, migration, cache, or virtual-environment files changed.
-- [ ] Update this plan with execution results and synchronize living documentation.
-- [ ] Commit the implementation as `feat: render product detail template`.
-- [ ] Rendezvous:
-  - [ ] Confirm the codebase is workable.
-  - [ ] Merge the feature branch into `main`.
-  - [ ] Push the completed snapshot to GitHub.
+- [x] Commit this approved plan on `main`.
+- [x] Create and switch to a feature branch.
+- [x] Deactivate Conda and activate `digitalcaferoot/env` for every Python/Django command.
+- [x] Create `digitalcaferoot/digitalcafe/core/templates/core/product_detail.html` with the requested back link and conditional product fields.
+- [x] Update `core.views.product_detail` to load `core/product_detail.html`, pass the selected `Product` as `product`, and render the response.
+- [x] Run `python manage.py check` and the test suite.
+- [x] Verify the detail template is discoverable.
+- [x] Verify an existing `/product/<id>` response contains the product name, price, and `Back to products` link.
+- [x] Verify `/` remains functional.
+- [x] Review the diff and confirm no database, migration, cache, or virtual-environment files changed.
+- [x] Update this plan with execution results and synchronize living documentation.
+- [x] Commit the implementation as `feat: render product detail template`.
+- [x] Rendezvous:
+  - [x] Confirm the codebase is workable.
+  - [x] Merge the feature branch into `main`.
+  - [x] Push the completed snapshot to GitHub.
 
 ## Constraints
 
@@ -32,3 +32,12 @@ Render each product detail route through a dedicated template containing the pro
 ## Expected result
 
 An existing product detail URL renders the product name and price in `product_detail.html` and provides a working link back to `/`.
+
+## Execution results
+
+- Executed on branch `feat/product-detail-template` with Conda inactive and `digitalcaferoot/env` active.
+- Added `core/templates/core/product_detail.html` with product fields and the back link.
+- Converted `product_detail` to render the template with the selected `Product` context.
+- Django system check passed and the test suite completed with no discovered tests.
+- Template discovery succeeded; an existing detail route returned HTTP 200 with the expected name, price, and link.
+- The root product list continued to return HTTP 200.
