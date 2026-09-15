@@ -18,6 +18,9 @@ ITENT45/
         ├── manage.py
         ├── core/
         │   ├── migrations/
+        │   ├── templates/
+        │   │   └── core/
+        │   │       └── index.html
         │   ├── urls.py
         │   └── views.py
         └── digitalcafe/
@@ -32,8 +35,13 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 ## Current routing
 
 - `/` is routed from `digitalcafe.urls` to `core.urls`.
-- `core.views.index` returns the plain-text response `Hello world!`.
+- `core.views.index` loads `core/index.html` and supplies two in-memory product records.
+- The root page displays Americano at PHP 110 and Cappuccino at PHP 140.
 - `/admin/` retains Django's generated administration route.
+
+## Installed applications
+
+`core.apps.CoreConfig` is registered in `INSTALLED_APPS`, enabling Django's app-level template discovery for `core/templates/core/index.html`.
 
 ## Running management commands
 

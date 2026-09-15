@@ -6,30 +6,30 @@ Register the `core` Django application and replace the root route's plain-text r
 
 ## Task board
 
-- [ ] Commit this approved implementation plan on `main`.
-- [ ] Create and switch to a feature branch.
-- [ ] Prepare the required Python environment:
-  - [ ] Source Conda shell integration.
-  - [ ] Deactivate Conda.
-  - [ ] Activate `digitalcaferoot/env`.
-  - [ ] Verify the active Python and Django installation.
-- [ ] Add `core.apps.CoreConfig` to `INSTALLED_APPS` in `digitalcaferoot/digitalcafe/digitalcafe/settings.py`.
-- [ ] Create `digitalcaferoot/digitalcafe/core/templates/core/index.html` with the approved product-list template.
-- [ ] Replace `core/views.py` with the approved loader-based view and two in-memory products.
-- [ ] Verify the change:
-  - [ ] Run `python manage.py check`.
-  - [ ] Run `python manage.py test`.
-  - [ ] Confirm Django can load `core/index.html`.
-  - [ ] Confirm `GET /` returns HTTP 200.
-  - [ ] Confirm the response contains `Americano`, `PHP 110`, `Cappuccino`, and `PHP 140`.
-- [ ] Review the diff and confirm no environment, cache, or database files are tracked.
-- [ ] Update this task board with execution results.
-- [ ] Commit the implementation as `feat: render core product template`.
-- [ ] Rendezvous:
-  - [ ] Confirm the codebase is workable.
-  - [ ] Merge the feature branch into `main`.
-  - [ ] Sync living documentation with the template-rendering behavior.
-  - [ ] Push the completed snapshot to GitHub.
+- [x] Commit this approved implementation plan on `main`.
+- [x] Create and switch to a feature branch.
+- [x] Prepare the required Python environment:
+  - [x] Source Conda shell integration.
+  - [x] Deactivate Conda.
+  - [x] Activate `digitalcaferoot/env`.
+  - [x] Verify the active Python and Django installation.
+- [x] Add `core.apps.CoreConfig` to `INSTALLED_APPS` in `digitalcaferoot/digitalcafe/digitalcafe/settings.py`.
+- [x] Create `digitalcaferoot/digitalcafe/core/templates/core/index.html` with the approved product-list template.
+- [x] Replace `core/views.py` with the approved loader-based view and two in-memory products.
+- [x] Verify the change:
+  - [x] Run `python manage.py check`.
+  - [x] Run `python manage.py test`.
+  - [x] Confirm Django can load `core/index.html`.
+  - [x] Confirm `GET /` returns HTTP 200.
+  - [x] Confirm the response contains `Americano`, `PHP 110`, `Cappuccino`, and `PHP 140`.
+- [x] Review the diff and confirm no environment, cache, or database files are tracked.
+- [x] Update this task board with execution results.
+- [x] Commit the implementation as `feat: render core product template`.
+- [x] Rendezvous:
+  - [x] Confirm the codebase is workable.
+  - [x] Merge the feature branch into `main`.
+  - [x] Sync living documentation with the template-rendering behavior.
+  - [x] Push the completed snapshot to GitHub.
 
 ## Constraints
 
@@ -42,3 +42,15 @@ Register the `core` Django application and replace the root route's plain-text r
 ## Expected result
 
 The root route renders `core/index.html` and displays Americano at PHP 110 and Cappuccino at PHP 140 in an unordered list.
+
+## Execution results
+
+- Executed on branch `feat/core-product-template` with Conda inactive and `digitalcaferoot/env` active.
+- Registered `core.apps.CoreConfig` in `INSTALLED_APPS`.
+- Added the namespaced `core/index.html` template and loader-based view.
+- `python manage.py check` reported no issues.
+- `python manage.py test` completed successfully with no discovered tests.
+- Django resolved the template from the `core` application.
+- Django's test client confirmed HTTP 200 and all four expected product/price strings.
+- No models were added and no migrations were run.
+- Living project documentation was synchronized.
