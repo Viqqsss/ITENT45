@@ -39,11 +39,11 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 
 - `/` is routed from `digitalcafe.urls` to `core.urls`.
 - `core.views.index` loads `core/index.html` and supplies database-backed `Product` records ordered by price.
-- The root page displays a two-column `Name`/`Price` table with each product name linked to `/product/<id>`.
+- The root page displays a two-column `Name`/`Price` table with each product name linked to `/product/<id>` and requires authentication.
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `/admin/` retains Django's generated administration route.
 - `core.admin` registers `Product` with the default Django admin site.
-- `/product/<integer>` routes to `core.views.product_detail` and renders the matching product name, price, and a link back to `/`.
+- `/product/<integer>` routes to `core.views.product_detail`, requires authentication, and renders the matching product name, price, and a link back to `/`.
 
 ## Installed applications
 
@@ -63,6 +63,8 @@ The local `db.sqlite3` database is development state and is excluded from Git. T
 ## Admin access
 
 Local development admin access is provisioned in the database, not in source control. The admin login is available at `/admin/`; credentials must be managed privately and changed before any shared or production deployment.
+
+Anonymous requests to the product views redirect to Django's default `/accounts/login/` URL with a `next` parameter. A user-facing login route has not yet been added.
 
 ## Running management commands
 
