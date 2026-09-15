@@ -6,27 +6,27 @@ Add a custom `/accounts/login/` page that authenticates users, reports invalid c
 
 ## Task board
 
-- [ ] Commit this approved plan on `main`.
-- [ ] Create and switch to a feature branch.
-- [ ] Deactivate Conda and activate `digitalcaferoot/env` for every Python/Django command.
-- [ ] Add the requested authentication imports and `login_view` to `core/views.py`.
-- [ ] Preserve the existing `login_required` decorators on `index` and `product_detail`.
-- [ ] Pass `request.user` through the index context.
-- [ ] Create `core/templates/core/login_view.html` with CSRF-protected username/password form and message rendering.
-- [ ] Add `accounts/login/` to `core/urls.py`.
-- [ ] Add `Hi, {{ user.username }}!` to `core/templates/core/index.html`.
-- [ ] Run `python manage.py check` and the test suite.
-- [ ] Verify GET `/accounts/login/` returns HTTP 200 with the login form.
-- [ ] Verify invalid credentials redirect back and expose `Invalid login.` through messages.
-- [ ] Verify valid `cafeadmin` credentials redirect to `/` and show the authenticated greeting.
-- [ ] Verify anonymous product requests redirect to the login page and authenticated product routes remain accessible.
-- [ ] Review the diff and confirm no database schema, cache, or virtual-environment files changed.
-- [ ] Update this plan with execution results and synchronize living documentation.
-- [ ] Commit the implementation as `feat: add custom login flow`.
-- [ ] Rendezvous:
-  - [ ] Confirm the codebase is workable.
-  - [ ] Merge the feature branch into `main`.
-  - [ ] Push the completed snapshot to GitHub.
+- [x] Commit this approved plan on `main`.
+- [x] Create and switch to a feature branch.
+- [x] Deactivate Conda and activate `digitalcaferoot/env` for every Python/Django command.
+- [x] Add the requested authentication imports and `login_view` to `core/views.py`.
+- [x] Preserve the existing `login_required` decorators on `index` and `product_detail`.
+- [x] Pass `request.user` through the index context.
+- [x] Create `core/templates/core/login_view.html` with CSRF-protected username/password form and message rendering.
+- [x] Add `accounts/login/` to `core/urls.py`.
+- [x] Add `Hi, {{ user.username }}!` to `core/templates/core/index.html`.
+- [x] Run `python manage.py check` and the test suite.
+- [x] Verify GET `/accounts/login/` returns HTTP 200 with the login form.
+- [x] Verify invalid credentials redirect back and expose `Invalid login.` through messages.
+- [x] Verify valid `cafeadmin` credentials redirect to `/` and show the authenticated greeting.
+- [x] Verify anonymous product requests redirect to the login page and authenticated product routes remain accessible.
+- [x] Review the diff and confirm no database schema, cache, or virtual-environment files changed.
+- [x] Update this plan with execution results and synchronize living documentation.
+- [x] Commit the implementation as `feat: add custom login flow`.
+- [x] Rendezvous:
+  - [x] Confirm the codebase is workable.
+  - [x] Merge the feature branch into `main`.
+  - [x] Push the completed snapshot to GitHub.
 
 ## Constraints
 
@@ -39,3 +39,12 @@ Add a custom `/accounts/login/` page that authenticates users, reports invalid c
 ## Expected result
 
 Users can log in at `/accounts/login/`; invalid attempts receive a message, valid `cafeadmin` credentials redirect to `/`, and the protected product pages display the logged-in username.
+
+## Execution results
+
+- Executed on branch `feat/custom-login-flow` with Conda inactive and `digitalcaferoot/env` active.
+- Added `login_view`, authentication imports, the login route, and the CSRF-protected login template.
+- Added the authenticated-user greeting to the product list context/template.
+- Django system check passed and the test suite completed with no discovered tests.
+- Login GET returned HTTP 200; invalid credentials displayed `Invalid login.`; valid credentials redirected to `/` and displayed `Hi, cafeadmin!`.
+- Anonymous product access redirected to login, while authenticated list/detail routes returned HTTP 200.
