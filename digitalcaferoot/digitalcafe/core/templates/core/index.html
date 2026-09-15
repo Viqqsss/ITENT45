@@ -1,18 +1,14 @@
 {% if product_data %}
     <table>
-        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        {% for product_record in product_data %}
             <tr>
-                <th>Product Name</th>
-                <th>Product Price</th>
+                <td><a href="/product/{{ product_record.id }}">{{ product_record.name }}</a></td>
+                <td>{{ product_record.price }}</td>
             </tr>
-        </thead>
-        <tbody>
-            {% for product_record in product_data %}
-                <tr>
-                    <td>{{ product_record.name }}</td>
-                    <td>PHP {{ product_record.price }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+        {% endfor %}
     </table>
 {% endif %}
