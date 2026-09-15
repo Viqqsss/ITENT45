@@ -41,6 +41,7 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - The root page displays a two-column table with Espresso at PHP 100, Americano at PHP 110, and Cappuccino at PHP 140.
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `/admin/` retains Django's generated administration route.
+- `core.admin` registers `Product` with the default Django admin site.
 
 ## Installed applications
 
@@ -56,6 +57,10 @@ python manage.py migrate
 ```
 
 The local `db.sqlite3` database is development state and is excluded from Git. The current `Product` model stores `name` as a maximum-50-character string and `price` as an integer.
+
+## Admin access
+
+Local development admin access is provisioned in the database, not in source control. The admin login is available at `/admin/`; credentials must be managed privately and changed before any shared or production deployment.
 
 ## Running management commands
 
