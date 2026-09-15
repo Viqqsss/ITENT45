@@ -19,11 +19,13 @@ ITENT45/
         ├── core/
         │   ├── migrations/
         │   │   ├── 0001_initial.py
-        │   │   └── 0002_cartitem.py
+        │   │   ├── 0002_cartitem.py
+        │   │   └── 0003_transaction_lineitem.py
         │   ├── models.py
         │   ├── templates/
         │   │   └── core/
         │   │       ├── index.html
+        │   │       ├── checkout.html
         │   │       ├── login_view.html
         │   │       └── product_detail.html
         │   ├── urls.py
@@ -45,11 +47,13 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - The product detail page includes an authenticated quantity form that creates a `CartItem` and reports success on the product list.
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `core.models.CartItem` stores a user's product and quantity as a cart line item.
+- `core.models.Transaction` and `core.models.LineItem` persist completed checkout records.
 - `/admin/` retains Django's generated administration route.
 - `core.admin` registers `Product` with the default Django admin site.
 - `core.admin` also registers `CartItem` for admin management.
 - `/product/<integer>` routes to `core.views.product_detail`, requires authentication, and renders the matching product name, price, and a link back to `/`.
 - `/accounts/login/` renders the custom login form, reports invalid credentials, and redirects successful logins to `/`.
+- `/checkout` displays the authenticated user's cart and converts it into a transaction and line items on POST.
 
 ## Installed applications
 

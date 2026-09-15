@@ -1,3 +1,5 @@
+import datetime as dt
+
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import (
@@ -9,7 +11,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import CartItem, Product
+from .models import CartItem, LineItem, Product, Transaction
 
 
 @login_required
@@ -45,6 +47,32 @@ def product_detail(request, product_id):
             messages.INFO,
             f"Added {submitted_quantity} of {product.name} to your cart",
         )
+        return redirect("index")
+
+
+@login_required
+def checkout(request):
+    if request.method == "GET":
+        template = loader.get_template("core/checkout.html")
+        cart_items = CartItem.objects.filter(user=request.user)
+        context = {
+            "cart_items": list(cart_items),
+        }
+        return HttpResponse(template.render(context, request))
+    elif request.method == "POST":
+        cart_items = CartItem.objects.filter(user=request.user)
+        created_at = dt.datetime.now(tz=dt.timezone.utc)
+        transaction = Transaction(user=request.user, created_at=created_at)
+        transaction.save()
+        for cart_item in cart_items:
+            line_item = LineItem(
+                transaction=transaction,
+                product=cart_item.product,
+                quantity=cart_item.quantity,
+            )
+            line_item.save()
+            cart_item.delete()
+        messages.add_message(request, messages.INFO, "Thank you for your purchase!")
         return redirect("index")
 
 
