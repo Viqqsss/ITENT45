@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
 
+from .models import Product
+
 
 def index(request):
     # Load the template

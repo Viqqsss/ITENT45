@@ -18,6 +18,8 @@ ITENT45/
         ├── manage.py
         ├── core/
         │   ├── migrations/
+        │   │   └── 0001_initial.py
+        │   ├── models.py
         │   ├── templates/
         │   │   └── core/
         │   │       └── index.html
@@ -37,11 +39,23 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - `/` is routed from `digitalcafe.urls` to `core.urls`.
 - `core.views.index` loads `core/index.html` and supplies two in-memory product records.
 - The root page displays Americano at PHP 110 and Cappuccino at PHP 140.
+- `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `/admin/` retains Django's generated administration route.
 
 ## Installed applications
 
 `core.apps.CoreConfig` is registered in `INSTALLED_APPS`, enabling Django's app-level template discovery for `core/templates/core/index.html`.
+
+## Database workflow
+
+After activating the project environment, create and apply model migrations from `digitalcaferoot/digitalcafe/`:
+
+```bash
+python manage.py makemigrations core
+python manage.py migrate
+```
+
+The local `db.sqlite3` database is development state and is excluded from Git. The current `Product` model stores `name` as a maximum-50-character string and `price` as an integer.
 
 ## Running management commands
 
