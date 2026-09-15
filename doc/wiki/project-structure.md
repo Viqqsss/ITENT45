@@ -42,6 +42,7 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - `/` is routed from `digitalcafe.urls` to `core.urls`.
 - `core.views.index` loads `core/index.html` and supplies database-backed `Product` records.
 - The root page displays a two-column `Name`/`Price` table with each product name linked to `/product/<id>`, requires authentication, and greets the logged-in user.
+- The product detail page includes an authenticated quantity form that creates a `CartItem` and reports success on the product list.
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `core.models.CartItem` stores a user's product and quantity as a cart line item.
 - `/admin/` retains Django's generated administration route.
