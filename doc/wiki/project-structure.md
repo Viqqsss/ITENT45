@@ -42,6 +42,7 @@ The outer `digitalcaferoot/` contains the Python environment and dependency reco
 - `core.models.Product` persists product names and whole-PHP prices in the local database.
 - `/admin/` retains Django's generated administration route.
 - `core.admin` registers `Product` with the default Django admin site.
+- `/product/<integer>` routes to `core.views.product_detail` and returns the captured integer as plain text.
 
 ## Installed applications
 
@@ -72,5 +73,7 @@ python manage.py check
 python manage.py test
 python manage.py runserver
 ```
+
+The current application routes are `/` for the product table, `/product/<product_id>` for the dynamic integer detail demonstration, and `/admin/` for Django administration.
 
 Initial database migrations have not yet been run.

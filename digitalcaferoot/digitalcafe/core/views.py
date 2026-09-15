@@ -12,3 +12,7 @@ def index(request):
         "product_data": products
     }
     return HttpResponse(template.render(context, request))
+
+
+def product_detail(request, product_id):
+    return HttpResponse(str(product_id))
